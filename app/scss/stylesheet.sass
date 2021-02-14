@@ -1,0 +1,312 @@
+
+// Checkpoints
+
+@mixin font($font_name, $file_name, $weight, $style)
+	@font-face
+		font-family: $font_name
+		font-display: swap
+		src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2")
+		font-weight: #{$weight}
+		font-style: #{$style}
+
+@import "fonts.sass"
+
+*
+	box-sizing: border-box
+
+html
+	line-height: 1.15
+	-webkit-text-size-adjust: 100%
+	overflow-x: hidden
+	position: relative
+	z-index: -1
+
+body, input
+	font-family: 'Montserrat'
+	font-weight: normal
+	margin: 0
+	padding: 0
+	font-size: 15px
+
+body
+	position: relative
+
+h1, h2, h3, h4, h5, h6
+  margin: 0
+  font-weight: bold
+  line-height: 130%
+
+h1
+  font-size: 31px
+  line-height: 140%
+
+p
+  letter-spacing: 0.01em
+  margin: 0
+
+p, span
+	line-height: 130%
+
+p
+	span
+		display: inline
+
+ul
+	padding: 0
+	margin: 0
+
+li
+	list-style: none
+
+button
+  font-family: Montserrat
+  cursor: pointer
+  outline: none
+  border: 0
+  font-size: 16px
+  text-align: center
+  line-height: 130%
+  font-weight: bold
+  border-radius: 6px
+  width: 180px
+  height: 48px
+  display: block
+
+.container
+	width: 917px
+	margin: auto
+
+.header
+  height: 220px
+  background: #284622
+  .container
+    display: flex
+    padding-top: 44px
+
+.header-photo
+  border-radius: 10px
+  width: 200px
+  height: 200px
+  filter: drop-shadow(5px 8px 16px rgba(190, 190, 190, 0.25))
+  &.mobile
+    display: none
+
+.header-title
+  color: #FFFFFF
+  margin-left: 48px
+  .header-title-mobile
+    display: none
+
+main
+  padding: 34px 0 44px 0
+  display: flex
+  flex-direction: column
+
+.buttons-wrapper
+  display: flex
+  justify-content: center
+  button
+    margin: 0 30px
+
+.btn-main
+  background: #FF4C00
+  box-shadow: 5px 6px 22px rgba(204, 61, 0, 0.24)
+  color: #FFFFFF
+  transition: 0.5s ease-in-out
+  &:hover
+    box-shadow: none
+
+.btn-not-active
+  background: 0
+  color: #FF4C00
+  text-decoration-line: underline
+
+.main-description
+  font-size: 16px
+  line-height: 23px
+  margin: 40px 0
+
+.main-list
+  display: flex
+  justify-content: space-between
+
+.main-list-wrapper
+  width: 444px
+  &:nth-child(2)
+    width: 395px
+
+.main-list-item
+  margin-bottom: 24px
+  .hide-mobile
+    display: none
+
+.main-list-mobile
+  display: none
+
+.main-list-title, .blocks-title
+  font-size: 13px
+  font-weight: 400
+  color: #7E7E7E
+  margin-left: 0
+
+.main-list-text
+  font-weight: bold
+  font-size: 18px
+  color: #031143
+  margin-top: 4px
+  margin-left: 0
+
+.container-flag
+  display: flex
+  margin-left: 0
+  margin-top: 4px
+  .container-flag-img
+    margin-right: 8px
+    border-radius: 5px
+    filter: drop-shadow(1px 2px 5px rgba(138, 138, 138, 0.25))
+    &.hide-flag
+      display: none
+
+.blocks
+    .main-list-title
+      span
+        display: none
+
+.blocks-container
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  width: 274px
+  .blocks-item
+    margin-top: 8px
+    background: #C4C4C4
+    border-radius: 2px
+    display: block
+    width: 55px
+    height: 25px
+    margin-right: 0
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+  .container
+    width: 700px
+
+  .buttons-wrapper
+    margin-left: 250px
+    .btn-main
+      margin-left: 0
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px)
+  .container
+    width: 520px	
+
+  .main
+    order: 0
+
+  .blocks
+    order: 1
+
+  .buttons
+    order: 2
+
+  .main-list
+    flex-direction: column
+    
+  .buttons-wrapper
+    margin-left: 0
+    margin-top: 40px
+    .btn-main
+      margin-left: 30px
+
+  .main-list-wrapper
+    width: 100% !important
+
+@media only screen and (max-width : 576px)
+  .container
+    width: 100%
+    padding: 0 20px
+
+  .header
+    height: 214px 
+    .container
+      padding-top: 20px
+
+  .header-photo
+    &.mobile
+      display: block
+      width: 60px
+      height: 60px
+    &.pc
+      display: none
+
+  .header-title
+    margin-left: 12px
+    font-size: 20px
+    .header-title-mobile
+      display: block
+
+  main
+    padding: 20px 0 41px 0
+
+  .main-description
+    display: -webkit-box
+    -webkit-line-clamp: 7
+    -webkit-box-orient: vertical
+    overflow-y: hidden
+
+  .main-list-wrapper
+    &:nth-child(2)
+      .main-list-item
+        display: none
+        &.flag-item
+          display: block
+
+  .main-description
+    margin: 0 0 20px 0
+
+  .main-list-item
+    margin-bottom: 14px
+    .hide-mobile
+      display: block
+
+  .main-list-mobile
+    display: flex
+    .main-list-item
+      margin-right: 23px
+
+  .main-list-title, .blocks-title
+    font-size: 10px
+
+  .main-list-text
+    font-size: 13px
+
+  .blocks
+    .main-list-title
+      span
+        display: inline
+
+  .main-list-text
+    .hide-mobile
+      display: none
+
+  .container-flag
+    .container-flag-img
+      &.hide-flag
+        display: block
+
+  .blocks-container
+    width: 262px
+    .blocks-item
+      display: none
+      width: 54px
+      &:nth-child(-n+8)
+        display: block
+
+  .buttons-wrapper
+      margin-top: 128px
+      flex-direction: column
+      align-items: center
+      button
+        margin: 0 !important
+  
